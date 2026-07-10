@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phosfold Studio — Where light unfolds</title>
+  <meta name="description" content="Phosfold Studio is a small independent game studio crafting quiet, luminous worlds — games shaped from light, silence, and wonder." />
+  <meta name="theme-color" content="#02040c" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Phosfold Studio — Where light unfolds" />
+  <meta property="og:description" content="An independent game studio crafting quiet, luminous worlds — games shaped from light, silence, and wonder." />
+  <meta property="og:image" content="assets/og-image.jpg" />
+  <meta property="og:site_name" content="Phosfold Studio" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Phosfold Studio — Where light unfolds" />
+  <meta name="twitter:description" content="Games shaped from light, silence, and wonder." />
+  <meta name="twitter:image" content="assets/og-image.jpg" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+  <!-- Fonts (self-hosted) -->
+  <link rel="preload" href="assets/fonts/outfit-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/outfit-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/cormorant-garamond-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <script>document.documentElement.classList.replace('no-js','js');</script>
+</head>
+<body>
+
+  <!-- ═══════════ PRELOADER ═══════════ -->
+  <div id="preloader" aria-hidden="true">
+    <div class="pre-inner">
+      <svg class="pre-spark" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <path class="pre-spark-path" d="M50 2 Q55 45 98 50 Q55 55 50 98 Q45 55 2 50 Q45 45 50 2 Z" />
+      </svg>
+      <div class="pre-word" aria-hidden="true">
+        <span>P</span><span>H</span><span>O</span><span>S</span><span>F</span><span>O</span><span>L</span><span>D</span>
+      </div>
+      <div class="pre-line"><span class="pre-line-fill"></span></div>
+    </div>
+  </div>
+
+  <!-- ═══════════ CURSOR (desktop) ═══════════ -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ═══════════ GRAIN OVERLAY ═══════════ -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ═══════════ NAV ═══════════ -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav-brand" data-cursor="hover" aria-label="Phosfold Studio — home">
+      <img src="assets/mark-512.webp" alt="" class="nav-mark" width="34" height="34" />
+      <span class="nav-word">Phosfold<em>Studio</em></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#manifesto" class="nav-link" data-cursor="hover"><sup>01</sup>Manifesto</a>
+      <a href="#games" class="nav-link" data-cursor="hover"><sup>02</sup>Worlds</a>
+      <a href="#studio" class="nav-link" data-cursor="hover"><sup>03</sup>Studio</a>
+      <a href="#contact" class="nav-link" data-cursor="hover"><sup>04</sup>Signals</a>
+    </nav>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" data-cursor="hover">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav class="mobile-menu-links" aria-label="Mobile">
+      <a href="#manifesto" class="mobile-link"><sup>01</sup>Manifesto</a>
+      <a href="#games" class="mobile-link"><sup>02</sup>Worlds</a>
+      <a href="#studio" class="mobile-link"><sup>03</sup>Studio</a>
+      <a href="#contact" class="mobile-link"><sup>04</sup>Signals</a>
+    </nav>
+    <p class="mobile-menu-foot">Games shaped from light, silence, and wonder.</p>
+  </div>
+
+  <!-- ═══════════ SIDE DOTS ═══════════ -->
+  <nav class="dots" aria-label="Sections">
+    <a href="#top" class="dot" data-cursor="hover" aria-label="Top"><i></i></a>
+    <a href="#manifesto" class="dot" data-cursor="hover" aria-label="Manifesto"><i></i></a>
+    <a href="#games" class="dot" data-cursor="hover" aria-label="Worlds"><i></i></a>
+    <a href="#studio" class="dot" data-cursor="hover" aria-label="Studio"><i></i></a>
+    <a href="#contact" class="dot" data-cursor="hover" aria-label="Signals"><i></i></a>
+  </nav>
+
+  <main id="main">
+
+    <!-- ═══════════ HERO ═══════════ -->
+    <section class="hero" id="top">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <canvas id="dust" aria-hidden="true"></canvas>
+
+      <!-- Parallax shards -->
+      <div class="shards" aria-hidden="true">
+        <svg class="shard shard-1" data-depth="0.9" viewBox="0 0 200 260"><polygon points="100,0 200,120 100,260 0,120" /></svg>
+        <svg class="shard shard-2" data-depth="0.5" viewBox="0 0 160 200"><polygon points="80,0 160,100 80,200 0,100" /></svg>
+        <svg class="shard shard-3" data-depth="1.4" viewBox="0 0 120 160"><polygon points="60,0 120,80 60,160 0,80" /></svg>
+        <svg class="shard shard-4" data-depth="0.7" viewBox="0 0 100 100"><path d="M50 2 Q55 45 98 50 Q55 55 50 98 Q45 55 2 50 Q45 45 50 2 Z" /></svg>
+        <svg class="shard shard-5" data-depth="1.1" viewBox="0 0 100 100"><path d="M50 2 Q55 45 98 50 Q55 55 50 98 Q45 55 2 50 Q45 45 50 2 Z" /></svg>
+        <svg class="shard shard-6" data-depth="0.35" viewBox="0 0 220 280"><polygon points="110,0 220,130 110,280 0,130" /></svg>
+      </div>
+
+      <div class="hero-inner">
+        <div class="hero-mark" data-depth="0.25">
+          <img src="assets/mark-1024.png" alt="Phosfold Studio emblem — a faceted lantern of folded light" width="220" height="220" />
+          <div class="hero-mark-halo" aria-hidden="true"></div>
+        </div>
+        <p class="hero-eyebrow reveal"><span class="star">✦</span> Phosfold Studio — independent game works</p>
+        <h1 class="hero-title">
+          <span class="line"><span class="line-inner">Where light</span></span>
+          <span class="line"><span class="line-inner">un<em>folds</em>.</span></span>
+        </h1>
+        <p class="hero-sub reveal">We craft quiet, luminous games — <br class="br-desk" />worlds folded from light, silence, and wonder.</p>
+        <div class="hero-cta reveal">
+          <a href="#games" class="btn btn-solid" data-cursor="hover" data-magnetic><span>Explore our worlds</span></a>
+          <a href="#manifesto" class="btn btn-ghost" data-cursor="hover" data-magnetic><span>Read the manifesto</span></a>
+        </div>
+      </div>
+
+      <div class="hero-foot" aria-hidden="true">
+        <div class="scroll-cue"><span class="scroll-cue-label">Scroll</span><span class="scroll-cue-line"><i></i></span></div>
+        <p class="hero-coord">40.7°N — folded by hand — est. MMXXVI</p>
+      </div>
+    </section>
+
+    <!-- ═══════════ MANIFESTO ═══════════ -->
+    <section class="manifesto section" id="manifesto">
+      <div class="section-head reveal">
+        <span class="section-num">01</span>
+        <span class="section-rule"></span>
+        <span class="section-name">Manifesto</span>
+      </div>
+
+      <h2 class="manifesto-big" data-split>Every world begins as a single sheet of light. We fold until it breathes.</h2>
+
+      <div class="manifesto-grid">
+        <div class="etym reveal">
+          <div class="etym-item">
+            <span class="etym-word">Phos <em>— φῶς</em></span>
+            <p class="etym-def">Greek. Light — the first material. The thing every world is made of before it is made of anything else.</p>
+          </div>
+          <div class="etym-item">
+            <span class="etym-word">Fold</span>
+            <p class="etym-def">A crease, a layer, a hidden form. The shape patience makes. Where one surface becomes a place to hide something precious.</p>
+          </div>
+        </div>
+        <div class="manifesto-copy reveal">
+          <p>Phosfold is a small independent studio making games that value <b>atmosphere over noise</b>. We build slowly, by hand — puzzles of light and shadow, places that reward stillness, stories tucked into the creases.</p>
+          <p>No filler. No fog of features. Just worlds with a warm glow at their center, and the quiet confidence to let you find it yourself.</p>
+          <p class="manifesto-sign">— the folders of light <span class="star">✦</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ GAMES ═══════════ -->
+    <section class="games section" id="games">
+      <div class="section-head reveal">
+        <span class="section-num">02</span>
+        <span class="section-rule"></span>
+        <span class="section-name">Worlds in the making</span>
+      </div>
+
+      <!-- VESPERLIGHT -->
+      <article class="game">
+        <div class="game-art" data-art>
+          <div class="game-art-inner">
+            <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs>
+                <linearGradient id="vsky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#0b1030"/><stop offset=".55" stop-color="#070a1d"/><stop offset="1" stop-color="#04050f"/>
+                </linearGradient>
+                <radialGradient id="vglow" cx=".5" cy=".42" r=".5">
+                  <stop offset="0" stop-color="#f4b51d" stop-opacity=".32"/><stop offset="1" stop-color="#f4b51d" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="vblur"><feGaussianBlur stdDeviation="6"/></filter>
+              </defs>
+              <rect width="800" height="1000" fill="url(#vsky)"/>
+              <circle cx="400" cy="420" r="330" fill="url(#vglow)"/>
+              <!-- far towers -->
+              <g fill="#0a0e24">
+                <polygon points="40,1000 40,430 90,380 140,430 140,1000"/>
+                <polygon points="180,1000 180,520 240,470 300,520 300,1000"/>
+                <polygon points="640,1000 640,470 700,420 760,470 760,1000"/>
+              </g>
+              <!-- near towers -->
+              <g fill="#060919">
+                <polygon points="-20,1000 -20,560 60,480 140,560 140,1000"/>
+                <polygon points="300,1000 300,380 400,280 500,380 500,1000"/>
+                <polygon points="540,1000 540,600 630,520 720,600 720,1000"/>
+              </g>
+              <!-- lantern strings -->
+              <g class="v-lanterns">
+                <path d="M140 560 Q 320 640 500 380" stroke="#fff2d1" stroke-opacity=".12" fill="none"/>
+                <path d="M500 380 Q 610 520 720 600" stroke="#fff2d1" stroke-opacity=".12" fill="none"/>
+                <g fill="#f4b51d">
+                  <circle class="lan" cx="205" cy="592" r="5"/><circle class="lan" cx="280" cy="616" r="4"/><circle class="lan" cx="360" cy="580" r="6"/><circle class="lan" cx="440" cy="480" r="5"/><circle class="lan" cx="560" cy="460" r="5"/><circle class="lan" cx="640" cy="540" r="4"/>
+                </g>
+                <g fill="#f4b51d" filter="url(#vblur)" opacity=".8">
+                  <circle cx="205" cy="592" r="9"/><circle cx="360" cy="580" r="11"/><circle cx="440" cy="480" r="9"/><circle cx="560" cy="460" r="9"/>
+                </g>
+              </g>
+              <!-- window sparks -->
+              <g fill="#fff2d1" opacity=".5">
+                <rect x="382" y="420" width="6" height="10"/><rect x="412" y="470" width="6" height="10"/><rect x="70" y="620" width="5" height="9"/><rect x="666" y="640" width="5" height="9"/>
+              </g>
+              <!-- fog -->
+              <rect y="760" width="800" height="240" fill="#04050f" opacity=".75"/>
+              <rect y="700" width="800" height="120" fill="#0b1030" opacity=".28"/>
+              <!-- keeper -->
+              <g class="v-keeper">
+                <circle cx="400" cy="905" r="7" fill="#02040c" stroke="#fff2d1" stroke-opacity=".55"/>
+                <line x1="400" y1="912" x2="400" y2="948" stroke="#fff2d1" stroke-opacity=".55" stroke-width="3"/>
+                <circle class="lan" cx="424" cy="930" r="6" fill="#f4b51d"/>
+                <line x1="400" y1="922" x2="424" y2="924" stroke="#fff2d1" stroke-opacity=".45" stroke-width="2.5"/>
+              </g>
+            </svg>
+          </div>
+          <span class="game-art-frame" aria-hidden="true"></span>
+        </div>
+        <div class="game-info">
+          <p class="game-status reveal"><i class="pulse"></i>In development</p>
+          <h3 class="game-title" data-split>Vesperlight</h3>
+          <p class="game-pitch reveal">A lantern-lit descent through a city that forgot the sun.</p>
+          <p class="game-desc reveal">Guide the last lampkeeper down the terraces of Vesper, rekindling the streets one flame at a time. A slow-burn puzzle adventure about what darkness keeps — and what it gives back.</p>
+          <ul class="game-meta reveal">
+            <li>Puzzle adventure</li><li>PC &amp; console</li><li>2027</li>
+          </ul>
+          <a href="#contact" class="game-link" data-cursor="hover"><span>Follow this world</span><span class="star">✦</span></a>
+        </div>
+      </article>
+
+      <!-- STARCREASE -->
+      <article class="game game-flip">
+        <div class="game-art" data-art>
+          <div class="game-art-inner">
+            <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs>
+                <linearGradient id="ssky" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#05060c"/><stop offset="1" stop-color="#02040c"/>
+                </linearGradient>
+                <radialGradient id="sglow" cx=".62" cy=".38" r=".55">
+                  <stop offset="0" stop-color="#fff2d1" stop-opacity=".1"/><stop offset="1" stop-color="#fff2d1" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <rect width="800" height="1000" fill="url(#ssky)"/>
+              <rect width="800" height="1000" fill="url(#sglow)"/>
+              <!-- creases -->
+              <g stroke="#fff2d1" stroke-opacity=".07">
+                <line x1="0" y1="300" x2="800" y2="80"/><line x1="0" y1="640" x2="800" y2="420"/><line x1="120" y1="0" x2="520" y2="1000"/><line x1="660" y1="0" x2="300" y2="1000"/>
+              </g>
+              <!-- folded plane suggestion -->
+              <g class="s-plane">
+                <polygon points="330,330 560,260 500,520 300,560" fill="#fff2d1" opacity=".045"/>
+                <polygon points="330,330 500,520 300,560" fill="#f4b51d" opacity=".05"/>
+              </g>
+              <!-- constellation -->
+              <g class="s-constellation">
+                <g stroke="#fff2d1" stroke-opacity=".28">
+                  <line x1="180" y1="220" x2="330" y2="330"/><line x1="330" y1="330" x2="560" y2="260"/><line x1="560" y1="260" x2="640" y2="450"/><line x1="640" y1="450" x2="470" y2="610"/><line x1="470" y1="610" x2="250" y2="540"/><line x1="250" y1="540" x2="330" y2="330"/><line x1="470" y1="610" x2="430" y2="800"/>
+                </g>
+                <g class="s-stars" fill="#f4b51d">
+                  <path class="tw" d="M180 206 q2.4 11.6 14 14 q-11.6 2.4 -14 14 q-2.4 -11.6 -14 -14 q11.6 -2.4 14 -14Z"/>
+                  <path class="tw" d="M330 314 q2.8 13.2 16 16 q-13.2 2.8 -16 16 q-2.8 -13.2 -16 -16 q13.2 -2.8 16 -16Z"/>
+                  <path class="tw" d="M560 244 q2.8 13.2 16 16 q-13.2 2.8 -16 16 q-2.8 -13.2 -16 -16 q13.2 -2.8 16 -16Z"/>
+                  <path class="tw" d="M640 436 q2.4 11.6 14 14 q-11.6 2.4 -14 14 q-2.4 -11.6 -14 -14 q11.6 -2.4 14 -14Z"/>
+                  <path class="tw" d="M470 590 q3.4 16.2 20 20 q-16.2 3.4 -20 20 q-3.4 -16.2 -20 -20 q16.2 -3.4 20 -20Z" fill="#fff2d1"/>
+                  <path class="tw" d="M250 526 q2.4 11.6 14 14 q-11.6 2.4 -14 14 q-2.4 -11.6 -14 -14 q11.6 -2.4 14 -14Z"/>
+                  <path class="tw" d="M430 786 q2.4 11.6 14 14 q-11.6 2.4 -14 14 q-2.4 -11.6 -14 -14 q11.6 -2.4 14 -14Z"/>
+                </g>
+                <g fill="#fff2d1" opacity=".35">
+                  <circle cx="120" cy="480" r="1.6"/><circle cx="700" cy="180" r="1.4"/><circle cx="600" cy="720" r="1.6"/><circle cx="200" cy="760" r="1.3"/><circle cx="680" cy="880" r="1.5"/><circle cx="90" cy="90" r="1.4"/><circle cx="420" cy="120" r="1.5"/><circle cx="740" cy="560" r="1.3"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <span class="game-art-frame" aria-hidden="true"></span>
+        </div>
+        <div class="game-info">
+          <p class="game-status reveal"><i class="pulse"></i>Prototype</p>
+          <h3 class="game-title" data-split>Starcrease</h3>
+          <p class="game-pitch reveal">Fold the night sky. Every crease redraws the constellations.</p>
+          <p class="game-desc reveal">An origami puzzle box played across the heavens. Bend the firmament, align forgotten star-maps, and unfold the myth written on the other side of the dark.</p>
+          <ul class="game-meta reveal">
+            <li>Folding puzzle</li><li>PC &amp; mobile</li><li>TBA</li>
+          </ul>
+          <a href="#contact" class="game-link" data-cursor="hover"><span>Follow this world</span><span class="star">✦</span></a>
+        </div>
+      </article>
+
+      <!-- HUSH -->
+      <article class="game">
+        <div class="game-art" data-art>
+          <div class="game-art-inner">
+            <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs>
+                <linearGradient id="hsky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#0a0a10"/><stop offset="1" stop-color="#030308"/>
+                </linearGradient>
+                <radialGradient id="hember" cx=".5" cy=".5" r=".5">
+                  <stop offset="0" stop-color="#f4b51d" stop-opacity=".9"/><stop offset=".25" stop-color="#f4b51d" stop-opacity=".28"/><stop offset="1" stop-color="#f4b51d" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <rect width="800" height="1000" fill="url(#hsky)"/>
+              <!-- mountain layers -->
+              <polygon points="0,540 190,380 340,520 520,330 680,470 800,400 800,1000 0,1000" fill="#0d0d13"/>
+              <polygon points="0,660 150,540 330,660 560,500 800,640 800,1000 0,1000" fill="#0a0a0f"/>
+              <polygon points="0,800 220,680 430,790 640,690 800,780 800,1000 0,1000" fill="#07070b"/>
+              <!-- ember glow -->
+              <g class="h-ember">
+                <circle cx="430" cy="805" r="150" fill="url(#hember)" class="h-halo"/>
+                <circle cx="430" cy="805" r="7" fill="#ffd977"/>
+                <circle cx="430" cy="805" r="3" fill="#fff2d1"/>
+              </g>
+              <!-- carrier -->
+              <g stroke="#fff2d1" stroke-opacity=".5">
+                <line x1="416" y1="798" x2="416" y2="828" stroke-width="3"/>
+                <circle cx="416" cy="790" r="6" fill="#030308"/>
+                <line x1="416" y1="806" x2="428" y2="805" stroke-width="2"/>
+              </g>
+              <!-- sparks -->
+              <g class="h-sparks" fill="#f4b51d">
+                <circle class="spark" cx="450" cy="760" r="2"/><circle class="spark s2" cx="470" cy="720" r="1.6"/><circle class="spark s3" cx="440" cy="690" r="1.3"/><circle class="spark s4" cx="486" cy="668" r="1.2"/>
+              </g>
+              <!-- thin moon -->
+              <path d="M640 150 a60 60 0 1 0 22 116 a48 48 0 1 1 -22 -116Z" fill="#fff2d1" opacity=".14"/>
+            </svg>
+          </div>
+          <span class="game-art-frame" aria-hidden="true"></span>
+        </div>
+        <div class="game-info">
+          <p class="game-status reveal"><i class="pulse"></i>Concept</p>
+          <h3 class="game-title" data-split>Hush</h3>
+          <p class="game-pitch reveal">A quiet game about carrying light through the dark.</p>
+          <p class="game-desc reveal">One ember. One long night. A meditative journey where the only mechanic is care — shield your flame from wind, rain, and the things that envy it.</p>
+          <ul class="game-meta reveal">
+            <li>Meditative</li><li>Everywhere</li><li>Someday</li>
+          </ul>
+          <a href="#contact" class="game-link" data-cursor="hover"><span>Follow this world</span><span class="star">✦</span></a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ═══════════ STUDIO ═══════════ -->
+    <section class="studio section" id="studio">
+      <div class="section-head reveal">
+        <span class="section-num">03</span>
+        <span class="section-rule"></span>
+        <span class="section-name">The studio</span>
+      </div>
+
+      <h2 class="studio-big" data-split>Fewer games. Deeper folds.</h2>
+      <p class="studio-intro reveal">We are a small independent team — the kind that lights every scene by hand and ships nothing we wouldn't keep playing at 2 a.m., alone, with headphones.</p>
+
+      <div class="pillars">
+        <div class="pillar reveal">
+          <svg class="pillar-icon" viewBox="0 0 64 64" aria-hidden="true"><polygon points="32,4 60,36 32,60 4,36" fill="none" stroke-width="1.5"/><path d="M32 14 Q34 30 50 32 Q34 34 32 50 Q30 34 14 32 Q30 30 32 14Z"/></svg>
+          <span class="pillar-num">I</span>
+          <h3 class="pillar-name">Light</h3>
+          <p class="pillar-copy">Illumination is our raw material. Every scene is lit on purpose, every shadow placed like punctuation.</p>
+        </div>
+        <div class="pillar reveal">
+          <svg class="pillar-icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke-width="1.5"/><line x1="14" y1="32" x2="50" y2="32" stroke-width="1.5"/></svg>
+          <span class="pillar-num">II</span>
+          <h3 class="pillar-name">Silence</h3>
+          <p class="pillar-copy">We trust quiet. No clutter, no noise, no timers screaming at you — space for players to hear themselves think.</p>
+        </div>
+        <div class="pillar reveal">
+          <svg class="pillar-icon" viewBox="0 0 64 64" aria-hidden="true"><polygon points="32,6 58,58 6,58" fill="none" stroke-width="1.5"/><circle cx="32" cy="41" r="5"/></svg>
+          <span class="pillar-num">III</span>
+          <h3 class="pillar-name">Wonder</h3>
+          <p class="pillar-copy">Secrets worth folding in. We hide small astonishments where only the patient and the curious will look.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ MARQUEE ═══════════ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Light <i>✦</i> Silence <i>✦</i> Wonder <i>✦</i> Light <i>✦</i> Silence <i>✦</i> Wonder <i>✦</i> Light <i>✦</i> Silence <i>✦</i> Wonder <i>✦</i> </span>
+        <span>Light <i>✦</i> Silence <i>✦</i> Wonder <i>✦</i> Light <i>✦</i> Silence <i>✦</i> Wonder <i>✦</i> Light <i>✦</i> Silence <i>✦</i> Wonder <i>✦</i> </span>
+      </div>
+    </div>
+
+    <!-- ═══════════ CONTACT ═══════════ -->
+    <section class="contact section" id="contact">
+      <div class="section-head reveal">
+        <span class="section-num">04</span>
+        <span class="section-rule"></span>
+        <span class="section-name">Signals</span>
+      </div>
+
+      <h2 class="contact-big" data-split>Follow the light.</h2>
+      <p class="contact-copy reveal">New worlds unfold rarely, and quietly. Leave your email and we'll send a single signal when one does — no noise in between.</p>
+
+      <form class="signal-form reveal" id="signalForm" novalidate>
+        <div class="signal-field">
+          <input type="email" id="signalEmail" name="email" placeholder="your@email.com" required aria-label="Email address" />
+          <button type="submit" class="btn btn-solid" data-cursor="hover" data-magnetic><span>Send signal</span></button>
+        </div>
+        <p class="signal-note" id="signalNote" role="status"></p>
+      </form>
+
+      <div class="contact-rows reveal">
+        <a class="contact-row" href="mailto:hello@phosfold.studio" data-cursor="hover">
+          <span class="contact-row-label">Write to us</span>
+          <span class="contact-row-value">hello@phosfold.studio</span>
+        </a>
+        <div class="contact-row">
+          <span class="contact-row-label">Elsewhere</span>
+          <span class="contact-row-value socials">
+            <a href="#" data-cursor="hover" aria-label="X / Twitter">X</a><i>·</i>
+            <a href="#" data-cursor="hover" aria-label="Bluesky">Bluesky</a><i>·</i>
+            <a href="#" data-cursor="hover" aria-label="Discord">Discord</a><i>·</i>
+            <a href="#" data-cursor="hover" aria-label="itch.io">itch.io</a><i>·</i>
+            <a href="#" data-cursor="hover" aria-label="Steam">Steam</a>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer class="footer">
+      <div class="footer-watermark" aria-hidden="true">PHOSFOLD</div>
+      <div class="footer-inner">
+        <img src="assets/mark-512.webp" alt="" class="footer-mark" width="52" height="52" />
+        <p class="footer-tag">Games shaped from light, silence, and wonder.</p>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="#manifesto" data-cursor="hover">Manifesto</a>
+          <a href="#games" data-cursor="hover">Worlds</a>
+          <a href="#studio" data-cursor="hover">Studio</a>
+          <a href="#contact" data-cursor="hover">Signals</a>
+        </nav>
+        <p class="footer-fine">© MMXXVI Phosfold Studio — all light reserved. <span class="star">✦</span> Folded by hand.</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/vendor/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
